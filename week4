@@ -1,0 +1,19 @@
+step1:open vm ware workstation and start ubuntu
+Step2:click on home then go to the pig folder then select bin folder and right click open in terminal
+Step3: check the pig version :$pig –version
+Step4:Create a text file 
+Step5:gedit  studata.txt write the some text
+step6:save and close
+step7:start pig: pig –x local
+step8:To load data from local system
+      mydata = LOAD '/home/student/pig/bin/studata.txt'  USING  PigStorage(',') AS (name:chararray, rollnumber:int, age:int, class:chararray);
+step9:To dump the loaded data: dump mydata;
+step10:to describe the data :describe mydata;
+Step11:grunt> studentsbranch = GROUP mydata BY class;
+To see the output
+Step12: dump studentsbranch;
+Step13: To store data into local system
+ STORE studentsbranch INTO 'result.txt' USING PigStorage(',');
+Step14: see the output in bin folder select the  output txt the open part-r-00000
+
+
