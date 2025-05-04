@@ -1,0 +1,28 @@
+hadoop version
+java –version
+start-all.sh
+jps
+hadoop-3.4.0/bin/hdfs namenode –format
+start-all.sh
+open browser http://localhost:9870
+open intellij idea click on new project give the name of the project
+select maven goto advance give the group id name org.dsbda
+remove main class
+create dependencies in org.dsbda copy the dependencies code from the git hub 
+        github.com/ rishikumar1992/DSBDA-LAB
+go to maven click on the project name reload all projects 
+create the 3 java classes WC_Mapper ,Reducer,Runner copy the code from git hub
+create jar file ---> click on maven clean enter and maven install
+target folder will be created which contains jar file
+goto ubuntu tewrminal create the text file input2.txt
+nano sample.txt
+write some text with repeated words
+ctrl+0 and ctrl+x
+cat sample.txt
+create the folder on the localhost hadoop fs -mkdir /input2
+hadoop fs -put sample.txt /input2
+back to the local host check the file system
+back to the intellij go to terminal hadoop jar target/week2-1.0-SNAPSHOT.jar org.dsbda.WC_Runner /input2/input2.txt /output2
+back to the local host check the file system
+
+
