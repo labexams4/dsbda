@@ -1,0 +1,21 @@
+install.packages (tidy"))
+library (ggplot2)
+library (dplys)
+library (tidy)
+library (strings)
+data <- read.csv(social-media: txt", stringsAsFactors*FALSE)
+hashtag_data <- data %>%
+               seperate_rows(Hashtags, sep=",") %>%
+                mutate (Hashtags=str_trim(Hashtags))
+hashtag_freq <- hashtag_data %>%
+              group by (Hashtags)%>%
+              summarise (Frequency=n())
+ggplot (hashtag_freq, aes (x = reorder (Hashtags, Frequency), y= Frequency, fill= Hashtags )) + geom_bar( stat=" identity") + coord_flip()+
+       labs (title="Hashtag Frequency") + theme_minimal()
+sentiment_freq  <- data%>%
+        count (Sentiment)
+ggplot (sentiment_freq, aes (x="",y=n, fill=Sentiment)) + geom_col( width = 1) + coord_play(theta = "y") +
+              labs ('title Tweet Sentiment Distribution") + theme-void()
+ggplot(data, aes (x = likes, y=Retweets,color= Sentiment))+ geom_point(size = 4)+ theme_minimal()
+
+
