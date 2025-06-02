@@ -3,19 +3,27 @@ library (ggplot2)
 library (dplys)
 library (tidy)
 library (strings)
-data <- read.csv(social-media: txt", stringsAsFactors*FALSE)
+data <- read.csv("social_media.txt", stringsAsFactors=FALSE)
 hashtag_data <- data %>%
                seperate_rows(Hashtags, sep=",") %>%
                 mutate (Hashtags=str_trim(Hashtags))
 hashtag_freq <- hashtag_data %>%
               group by (Hashtags)%>%
               summarise (Frequency=n())
-ggplot (hashtag_freq, aes (x = reorder (Hashtags, Frequency), y= Frequency, fill= Hashtags )) + geom_bar( stat=" identity") + coord_flip()+
+ggplot (hashtag_freq, aes (x = reorder(Hashtags, Frequency), y= Frequency, fill= Hashtags )) + geom_bar( stat=" identity") + coord_flip()+
        labs (title="Hashtag Frequency") + theme_minimal()
 sentiment_freq  <- data%>%
         count (Sentiment)
 ggplot (sentiment_freq, aes (x="",y=n, fill=Sentiment)) + geom_col( width = 1) + coord_play(theta = "y") +
-              labs ('title Tweet Sentiment Distribution") + theme-void()
+              labs ('title Tweet Sentiment Distribution") + theme_void()
 ggplot(data, aes (x = likes, y=Retweets,color= Sentiment))+ geom_point(size = 4)+ theme_minimal()
 
-
+social_media.txt
+------------------------------------------------------
+Tweet,Hashtags,Sentiment,Likes,Retweets
+"AI is transforming the world","#AI,#Python",Positive,120,30
+"Data science is the future","#DataScience,#ML",Neutral,80,22
+"Deep learning is complex","#DeepLearning",Negative,40,15
+"AI for good","#AI,#Future",Positive,95,20
+"Learning Python basics","#Python,#Coding",Neutral,60,18
+"ML is trending","#ML",Positive,110,25
